@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tab Menu Vertical</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.wrapper{
+			width: 1000px;
+			height: 420px;
+			margin: 30px auto;
+		}
+		.tab{
+			width: 100%;
+			height: 300px;
+			border: 1px solid #ccc;
+			display: flex;
+		}
+		.btn{
+			float: left;
+			width: 30%;
+			height: 100%;
+			border-right: 1px solid #ccc;
+		}
+		.content{
+			float: right;
+			width: 70%;
+			height: 100%;
+			padding-left: 30px;
+		}
+		.contentlink{
+			display: none;
+		}
+		button{
+			width: 100%;
+			height: 100px;
+			background-color: #f1f1f1;
+			border: none;
+			cursor: pointer;
+			font-size: 18px;
+			transition: 0.3s;
+		}
+		button:hover{
+			background-color: #ddd;
+		}
+		button.active{
+			background-color: #ccc;
+		}
+		p{
+			font-size: 23px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="tab">
+			<div class="btn">
+				<button class="btnlink" onclick="opencity(event, 'London')">London</button>
+				<button class="btnlink" onclick="opencity(event, 'Paris')">Paris</button>
+				<button  class="btnlink" onclick="opencity(event, 'Tokyo')">Tokyo</button>
+			</div>
+			<div class="content">
+				<div class="contentlink" id="London">
+				<h1>London</h1>
+				<p>London is the capital city of England.</p>
+				</div>
+				<div class="contentlink" id="Paris">
+					<h1>Paris</h1>
+					<p>Paris is the capital of France.</p>
+				</div>
+				<div class="contentlink" id="Tokyo">
+					<h1>Tokyo</h1>
+					<p>Tokyo is the capital of Japan</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function opencity(evt, city){
+			var i, contentlink, btnlink;
+			contentlink = document.getElementsByClassName('contentlink');
+			for(i=0; i< contentlink.length; i++){
+				contentlink[i].style.display = "none";
+			}
+			btnlink = document.getElementsByClassName('btnlink');
+			for(i=0; i< btnlink.length; i++){
+				btnlink[i].className = btnlink[i].className.replace(" active", "");
+			}
+			document.getElementById(city).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+	</script>
+</body>
+</html>
