@@ -1,2 +1,2 @@
-# Tab-Menu-vertical-
-Tab menu with mouseclick
+# Tab-Menu-Vertical-
+Tab menu with mouse click
